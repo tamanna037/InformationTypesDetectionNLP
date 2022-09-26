@@ -22,3 +22,6 @@ This is a multi-class classification problem. The following 13 information types
 15. Workarounds
 
 This project will be in python language. 
+
+### Liscence
+The project is liscensed under MIT License. Get to know about the liscense from here, https://github.com/tamanna037/InformationTypesDetectionNLP/blob/main/LICENSE 
