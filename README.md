@@ -24,4 +24,8 @@ This is a multi-class classification problem. The following 13 information types
 This project will be in python language. 
 
 ### Liscence
-The project is liscensed under MIT License. Get to know about the liscense from here, https://github.com/tamanna037/InformationTypesDetectionNLP/blob/main/LICENSE 
+The project is liscensed under MIT License. Get to know about the [liscense](https://github.com/tamanna037/InformationTypesDetectionNLP/blob/main/LICENSE) from here.
+
+### How to contribute
+For contribution guidelines, kindly check [CONTRIBUTING.md](https://github.com/tamanna037/InformationTypesDetectionNLP/blob/main/CONTRIBUTING.md) file. 
+
