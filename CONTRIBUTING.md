@@ -8,7 +8,7 @@ If you have found any bugs or have any suggestions and plans for enhancement, ki
 
 __How to Report a Bug/Suggestions/Questions__
 
-You may create an issue in several ways and for several purposes. Kindly check this [link[(https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue) to learn the issue creation process.
+You may create an issue in several ways and for several purposes. Kindly check this [link](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue) to learn the issue creation process.
 
 __Bug Report__
 
