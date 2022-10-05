@@ -6,7 +6,11 @@ Since this project is under MIT liscence, before adding any component , make sur
 ### How to contribute
 If you have found any bugs or have any suggestions and plans for enhancement, kindly start with opening an issue. 
 
-__Bug report__
+__How to Report a Bug/Suggestions/Questions__
+
+You may create an issue in several ways and for several purposes. Kindly check this [link[(https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue) to learn the issue creation process.
+
+__Bug Report__
 
 An effective bug report should contain the following:
 * Elaborative Title
@@ -28,7 +32,9 @@ Follow the below guidelines for proposing a suggestion:
 * If applicable, provide some examples or scenarios to explain the necessity of the change.
 * Share your plan for the implementation of you have any. 
 
-__Submit changes__
+
+
+__How to Submit Changes__
 
 Follow these steps to contribute to the project. 
 * Fork, then clone the repo:
