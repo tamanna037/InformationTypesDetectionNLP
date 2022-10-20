@@ -6,6 +6,12 @@ Since this project is under MIT liscence, before adding any component , make sur
 ### How to contribute
 If you have found any bugs or have any suggestions and plans for enhancement, kindly start with opening an issue. 
 
+__How to Run the Script__
+
+- The Python notebook can be run in an environment that has **GPU available**.
+- You can either run in a local machine or server or better if you run in [Google Colab](https://colab.research.google.com).
+- You will also need to register to [wandb](https://wandb.ai) and generate API keys from their [authorization](https://wandb.ai/authorize)
+
 __How to Report a Bug/Suggestions/Questions__
 
 You may create an issue in several ways and for several purposes. Kindly check this [link](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue) to learn the issue creation process.
