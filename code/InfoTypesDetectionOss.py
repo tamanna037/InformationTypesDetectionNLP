@@ -12,6 +12,17 @@ from transformers import AutoTokenizer,Trainer,DataCollatorWithPadding,AutoModel
 TOTAL_CLASS=13
 tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
 
+def preprocess_data(issue_df):
+    # remove duplicate rows by Text Content
+    issue_df = issue_df.drop_duplicates(subset=['Text Content'], keep='first')
+
+    # replace newlines with space
+    issue_df['Text Content'] = issue_df['Text Content'].str.replace('\n', ' ')
+
+    # trim leading and trailing spaces
+    issue_df['Text Content'] = issue_df['Text Content'].str.strip()
+
+
 def getDatasetInfo():
     current_directory = os.getcwd()
     parent_directory = os.path.dirname(current_directory)
@@ -28,6 +39,9 @@ def getDatasetInfo():
 
     # Only Text content and class label are needed. So other datas are dropped
     issue_df = issue_df[['Text Content', 'Code']]
+
+    # cleanup the data
+    issue_df = preprocess_data(issue_df)
 
     # Renaming code to label for better understanding
     issue_df = issue_df.rename(columns={'Text Content': 'text', 'Code': 'label'})
