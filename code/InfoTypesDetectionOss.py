@@ -2,8 +2,7 @@ import torch
 import pandas as pd
 from torch import nn
 import datasets as dt
-from sklearn import 
-ing
+from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 from datasets import load_dataset, Dataset
 from transformers import AutoTokenizer,Trainer,DataCollatorWithPadding,AutoModelForSequenceClassification, TrainingArguments
