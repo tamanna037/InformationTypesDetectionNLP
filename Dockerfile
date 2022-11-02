@@ -2,7 +2,7 @@
 FROM python:3.8
 
 # set the working directory in the container
-WORKDIR /app
+WORKDIR /OSSProject
 
 # copy the dependencies file to the working directory
 COPY requirements.txt .
@@ -17,6 +17,6 @@ COPY code/ ./code/
 # copy the content of the local data directory to the working directory
 COPY data/ ./data/
 
-# command to run on container start
-#CMD [ "CD", "./source" ]
-#CMD [ "python", "./process_post_text.py" ]
+# Use these two commands to run-> first change directory , next run the code.
+# 1. cd ./code
+# 2. python InfoTypesDetectionOss.py
