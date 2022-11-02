@@ -1,12 +1,14 @@
-import os
 import torch
 import pandas as pd
 from torch import nn
 import datasets as dt
-from sklearn import preprocessing
+from sklearn import 
+ing
 from sklearn.model_selection import train_test_split
 from datasets import load_dataset, Dataset
 from transformers import AutoTokenizer,Trainer,DataCollatorWithPadding,AutoModelForSequenceClassification, TrainingArguments
+from sklearn.metrics import classification_report
+import numpy as np
 
 
 TOTAL_CLASS=13
@@ -21,12 +23,10 @@ def preprocess_data(issue_df):
 
     # trim leading and trailing spaces
     issue_df['Text Content'] = issue_df['Text Content'].str.strip()
-
+    return issue_df
 
 def getDatasetInfo():
-    current_directory = os.getcwd()
-    parent_directory = os.path.dirname(current_directory)
-    issue_df = pd.read_csv(parent_directory + '/data/literature_comments_dataset.csv')
+    issue_df = pd.read_csv('../data/dataInfoTypes.csv')
 
     print('Total ' + str(len(issue_df['Code'].unique())) + ' Classes')
     print(set(issue_df['Code']))
