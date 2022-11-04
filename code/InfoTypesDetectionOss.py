@@ -1,4 +1,3 @@
-import os
 import torch
 import pandas as pd
 from torch import nn
@@ -7,11 +6,15 @@ from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 from datasets import load_dataset, Dataset
 from transformers import AutoTokenizer,Trainer,DataCollatorWithPadding,AutoModelForSequenceClassification, TrainingArguments
+from sklearn.metrics import classification_report
+import numpy as np
 
 
 TOTAL_CLASS=13
 tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
 
+
+#the goal of this function is to remove duplicate texts from the dataset and removing extra spaces from a text data
 def preprocess_data(issue_df):
     # remove duplicate rows by Text Content
     issue_df = issue_df.drop_duplicates(subset=['Text Content'], keep='first')
@@ -21,12 +24,11 @@ def preprocess_data(issue_df):
 
     # trim leading and trailing spaces
     issue_df['Text Content'] = issue_df['Text Content'].str.strip()
+    return issue_df
 
-
+# Call this function to get the dataset and get necessary information about the dataset: length of the dataset, number of items in per class, total number of classes
 def getDatasetInfo():
-    current_directory = os.getcwd()
-    parent_directory = os.path.dirname(current_directory)
-    issue_df = pd.read_csv(parent_directory + '/data/literature_comments_dataset.csv')
+    issue_df = pd.read_csv('../data/dataInfoTypes.csv')
 
     print('Total ' + str(len(issue_df['Code'].unique())) + ' Classes')
     print(set(issue_df['Code']))
@@ -55,6 +57,7 @@ def getDatasetInfo():
     print(set(issue_df.head()))
     return issue_df
 
+# 90% data are on training set and 10% on testset. 5% of the training data has been taken to the validation set.
 def splitIntoTrainTestValSet(issue_df):
     train_df, test_df = train_test_split(issue_df, test_size=0.1, random_state=10, stratify=issue_df['label'])
 
@@ -67,6 +70,7 @@ def splitIntoTrainTestValSet(issue_df):
     dataset = dt.DatasetDict({"train": train_dataset, "val": val_dataset, "test": test_dataset})
     return dataset,train_df, val_df,test_df
 
+# Class weight has been measured to handle the imbalance among class distribution and later fed into the trainer
 def getClassWeight(train_df):
 
     totalClass= len(set(train_df['label']))
@@ -85,6 +89,7 @@ def get_data_collator():
     data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
     return data_collator
 
+# Bert tokenizer and model has been used
 def tokenize(dataset):
     tokenized_dataset= dataset.map(preprocess_function, batched=True)
     return tokenized_dataset
@@ -105,13 +110,7 @@ def getTraining_args():
 
     return training_args
 
-
-
-
-
-
-
-
+#this function take dataset as a input, calculate class weights, tokenize text data and then train the model based on the text data only.
 def train_model():
 
     #loading dataset file into dataframe
