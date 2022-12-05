@@ -3,7 +3,9 @@
 The goal is to develop a ML model to detect the information types each sentence of a comment/post of a github issue is providng in order to support various software engineering activities. 
 
 ### Dataset 
-The dataset and taxonomy of the types of information has been taken from the following paper:  *__Analysis and Detection of Information Types of Open Source Software Issue Discussions by Deeksha Arya, Wenting Wang, Jin L.C. Guo, Jinghui Cheng__*. 
+The dataset and taxonomy of the types of information has been taken from the following paper:  *__Analysis and Detection of Information Types of Open Source Software Issue Discussions by Deeksha Arya, Wenting Wang, Jin L.C. Guo, Jinghui Cheng__*. Dataset contains __sentences (Text Content)__ of comments & posts of 15 github issues taken from tesnorflow,  scikit-learn, spaCy github repository along with its __source(Document)__ , __label(Code)__ and __14 conversational features__. 
+
+The description of the conversational features are given below: ![.](https://github.com/tamanna037/InformationTypesDetectionNLP/blob/main/assets/conversational_features.png)
 
 ### Taxonomy 
 This is a multi-class classification problem. The following 13 information types will be detected: 
@@ -21,6 +23,10 @@ This is a multi-class classification problem. The following 13 information types
 14. Usage 
 15. Workarounds
 
+### Model
+A RandomForest classifier has been used to detect these information types. 
+
+### Language
 This project will be in python language. 
 
 ### Liscence
