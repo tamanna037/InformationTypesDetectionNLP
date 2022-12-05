@@ -1,6 +1,6 @@
 
 ### Goal
-The goal is to develop a BERT model to detect the information types each sentence of a comment/post of a github issue is providng in order to support various software engineering activities. 
+The goal is to develop a ML model to detect the information types each sentence of a comment/post of a github issue is providng in order to support various software engineering activities. 
 
 ### Dataset 
 The dataset and taxonomy of the types of information has been taken from the following paper:  *__Analysis and Detection of Information Types of Open Source Software Issue Discussions by Deeksha Arya, Wenting Wang, Jin L.C. Guo, Jinghui Cheng__*. 
@@ -30,7 +30,6 @@ The project is liscensed under MIT License. Get to know about the [liscense](htt
 For contribution guidelines, kindly check [CONTRIBUTING.md](https://github.com/tamanna037/InformationTypesDetectionNLP/blob/main/CONTRIBUTING.md) file. 
 
 ### How to run 
-Note: Run this project in an environment that has **GPU available**.
 * Download the repository and run the python file from 'code' folder in your loacal machine.             
                                 or
 * Use docker to run the scripts following these steps:
