@@ -7,9 +7,7 @@ Since this project is under MIT liscence, before adding any component , make sur
 If you have found any bugs or have any suggestions and plans for enhancement, kindly start with opening an issue. 
 
 __How to Run the Script__
-
-- The Python file can be run in an environment that has **GPU available**.
-- You can either run in a local machine or server or better if you run in [Google Colab](https://colab.research.google.com).
+- You can either run in a local machine or server or docker or better if you run in [Google Colab](https://colab.research.google.com) 
 
 __How to Report a Bug/Suggestions/Questions__
 
