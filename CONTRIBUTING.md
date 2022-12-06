@@ -1,7 +1,7 @@
 This is a guide to help you contribute in this project. Feel free to submit issues and make significant changes. 
 
 ### OSS component usage policy
-Since this project is under MIT liscence, before adding any component , make sure they are under the permissive licenses only such as MIT, BSD, Apache. To know about the possible licenses, go through the listing provided by [Open Source Initiative](https://opensource.org/licenses).
+This project is Licensed under MIT, Copyright 2022 Tamanna (For more information , check LICENSE.txt). Since this is under MIT liscence, before adding any component , make sure they are under the permissive licenses only such as MIT, BSD, Apache. To know about the possible licenses, go through the listing provided by [Open Source Initiative](https://opensource.org/licenses).
 
 ### How to contribute
 If you have found any bugs or have any suggestions and plans for enhancement, kindly start with opening an issue. 
