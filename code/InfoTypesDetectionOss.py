@@ -7,16 +7,18 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 from sklearn.ensemble import RandomForestClassifier
 
+#reading data from file
 issue_df = pd.read_csv('../data/dataInfoTypes.csv')
 
+#This  function will provide necessary info about the dataset
 def getDatasetInfo():
-    #reading data from file
-    #This is all you need to know about the dataset
+    #printing the number of labels and samples along with the class distribution
     print('Total ' + str(len(issue_df['Code'].unique())) + ' Classes and  ' +str(len(issue_df)) + ' samples in this dataset')
     print(set(issue_df['Code']))
     print('\n--------------Class Distribution----------')
     print(issue_df.Code.value_counts())
 
+    #printing dataset column information
     print('\nColumns in the dataset includes issue comment text and corresponding features. Columns are:')
     print(set(issue_df.head()))
     print('\n')
@@ -29,7 +31,7 @@ def encodeLabels():
     issue_df['Code (Original)'] = issue_df['Code']
     issue_df['Code'] = label_encoder.transform(issue_df['Code'])
 
-    #mapping the encoded numerical values to the class names and prepared a dictionary
+    #mapping the encoded numerical values to the class names and prepared a dictionary, class_id_map
     class_id_map_df = issue_df.drop_duplicates(subset=['Code'])
     encoded_label_list = class_id_map_df['Code'].to_list()
     original_label_list = class_id_map_df['Code (Original)'].to_list()
@@ -44,8 +46,7 @@ def encodeCategAndBoolColumns():
     return  issue_df
 
 def trainModel(train_df):
-
-    #dropping Text data, labels (Code', 'Text Content', 'Code (Original)') and Document colums
+    #dropping Text data, labels (Code', 'Text Content', 'Code (Original)') and Document colums since they will not be used for training
     X_train = train_df.drop(['Code', 'Text Content', 'Code (Original)','Document'], axis=1)
     y_train = train_df['Code'].values
 
@@ -56,7 +57,6 @@ def trainModel(train_df):
     return  clf
 
 def testModel(test_df,clf,class_id_map):
-
     # dropping Text data, labels (Code', 'Text Content', 'Code (Original)') and Document colums
     X_test = test_df.drop(['Code', 'Text Content', 'Code (Original)','Document'], axis=1)
     y_test = test_df['Code'].values
@@ -64,7 +64,7 @@ def testModel(test_df,clf,class_id_map):
     #predicting label
     y_pred = clf.predict(X_test)
 
-    #using the class_id_map to decode the class names
+    #using the class_id_map to decode the class names for showing result in a easily understanding format
     true_labels = []
     pred_labels = []
     for e in y_test:
@@ -94,4 +94,5 @@ def main():
     #testing
     testModel(test_df,clf,class_id_map)
 
+#Code runs from here    
 main()
