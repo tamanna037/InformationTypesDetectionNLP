@@ -1,3 +1,5 @@
+#  Copyright 2022 Tamanna, Licensed under MIT. For more information , check LICENSE.txt
+
 # set base image (host OS)
 FROM python:3.8
 
