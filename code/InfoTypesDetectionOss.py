@@ -1,3 +1,6 @@
+#  Copyright 2022 Tamanna, Licensed under MIT. For more information , check LICENSE.txt
+
+
 import pandas as pd
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
