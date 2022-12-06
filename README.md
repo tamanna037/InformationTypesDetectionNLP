@@ -1,5 +1,5 @@
-### License 
-Copyright 2022 Tamanna, Licensed under MIT. For more information , check LICENSE.txt
+### Liscence
+The project is liscensed under MIT License, Copyright 2022 Tamanna. Get to know about the [liscense](https://github.com/tamanna037/InformationTypesDetectionNLP/blob/main/LICENSE) from here.
 
 ### Goal
 The goal is to develop a ML model to detect the information types each sentence of a comment/post of a github issue is providng in order to support various software engineering activities. 
@@ -30,9 +30,6 @@ A RandomForest classifier has been used to detect these information types.
 
 ### Language
 This project will be in python language. 
-
-### Liscence
-The project is liscensed under MIT License. Get to know about the [liscense](https://github.com/tamanna037/InformationTypesDetectionNLP/blob/main/LICENSE) from here.
 
 ### How to contribute
 For contribution guidelines, kindly check [CONTRIBUTING.md](https://github.com/tamanna037/InformationTypesDetectionNLP/blob/main/CONTRIBUTING.md) file. 
