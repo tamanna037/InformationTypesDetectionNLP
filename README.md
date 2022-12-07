@@ -30,6 +30,9 @@ This is a multi-class classification problem. The following 13 information types
 ### Model
 A RandomForest classifier has been used to detect these information types. 
 
+### Test
+Unit tests and exception handling has been considered in the source code, InfoTypesDetectionOss.py.
+
 ### Language
 This project will be in python language. 
 
@@ -39,21 +42,18 @@ For contribution guidelines, kindly check [CONTRIBUTING.md](https://github.com/t
 ### How to run 
 * Download the repository and run the python file from 'code' folder in your loacal machine.             
                                 or
-* Use docker to run the scripts following these steps:
-  1. Install [docker desktop](https://www.docker.com/get-started/) compatible with your machine.  
-  2. Clone the repository of the project
-  3. Open terminal and go tho folder of the repository.
-  4. Run this command
+* Install [docker desktop](https://www.docker.com/get-started/) compatible with your machine and use docker to run the scripts following these steps.  
+  1. Clone the repository of the project and go tho folder of the repository.
+  2. In terminal, run this command
    ```
     docker build --no-cache -t infotypes .
    ``` 
-  5. In the docker app, go to **image** tab and find **infotypes** image and then run it. 
-  6. Next, go to **containers** tab, open terminal from the running container. 
-  7. Run following commands:
+  3. In the docker app, go to **image** tab and find **infotypes** image and then run it.   
+  4. Next, go to **containers** tab, open terminal from the running container. Run following commands:
      ```
       cd ./code
      ``` 
      ```
       python InfoTypesDetectionOss.py
      ``` 
-  8. The code will start running and training the model. Model performance on the test set will be printed. 
+  The code will start running and training the model. Model performance on the test set will be printed. 
