@@ -1,3 +1,5 @@
+# Issue Discussion Information Type Detection Tool
+
 ### Liscence
 The project is liscensed under MIT License, Copyright 2022 Tamanna. Get to know about the [liscense](https://github.com/tamanna037/InformationTypesDetectionNLP/blob/main/LICENSE) from here.
 
@@ -54,4 +56,4 @@ For contribution guidelines, kindly check [CONTRIBUTING.md](https://github.com/t
      ```
       python InfoTypesDetectionOss.py
      ``` 
-  8. The code will start running and training the model. You can see the output below
+  8. The code will start running and training the model. Model performance on the test set will be printed. 
