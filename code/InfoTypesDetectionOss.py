@@ -71,7 +71,7 @@ def testModel(test_df,clf,class_id_map):
     for e in y_pred:
       pred_labels.append(class_id_map[e])
 
-    print('\n----------------------------------Result----------------------------------')
+    print('\n------------------------------Test Result----------------------------------')
     print(classification_report(true_labels,pred_labels))
 
 
@@ -89,7 +89,8 @@ def main():
 
     #training
     clf=trainModel(train_df)
-
+    print('Training Completed')
+    
     #testing
     testModel(test_df,clf,class_id_map)
 
