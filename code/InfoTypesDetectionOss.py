@@ -1,13 +1,20 @@
 #  Copyright 2022 Tamanna, Licensed under MIT. For more information , check LICENSE.txt
-
+import pandas
 import pandas as pd
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 from sklearn.ensemble import RandomForestClassifier
 
-#reading data from file
-issue_df = pd.read_csv('../data/dataInfoTypes.csv')
+issue_df=pandas.DataFrame()
+
+def loadDataset():
+    global  issue_df
+    try:
+        # reading data from file
+        issue_df= pd.read_csv('../data/dataInfoTypes.csv')
+    except OSError as e:
+        print('No data file has been given')
 
 #This  function will provide necessary info about the dataset
 def getDatasetInfo():
@@ -40,6 +47,11 @@ def encodeCategAndBoolColumns():
     #Since these columns contain categorical and boolean values; transforming them into numerical values
     categ = ['aa', 'begauth', 'has_code', 'first_turn', 'last_turn']
     le = preprocessing.LabelEncoder()
+
+    #test
+    if (set(categ).issubset(set(issue_df.head()))==False):
+        return issue_df
+
     issue_df[categ] = issue_df[categ].apply(le.fit_transform)
     return  issue_df
 
@@ -50,7 +62,13 @@ def trainModel(train_df):
 
     #training using RandomForestClassifier
     clf = RandomForestClassifier()
-    clf.fit(X_train, y_train)
+
+    #test
+    try:
+        clf.fit(X_train, y_train)
+        print('Training Sucessfully completed')
+    except ValueError as e:
+        print('Training failed')
 
     return  clf
 
@@ -59,22 +77,45 @@ def testModel(test_df,clf,class_id_map):
     X_test = test_df.drop(['Code', 'Text Content', 'Code (Original)','Document'], axis=1)
     y_test = test_df['Code'].values
 
-    #predicting label
-    y_pred = clf.predict(X_test)
+    #test
+    try:
+        # predicting label
+        y_pred = clf.predict(X_test)
+        print('Testing Sucessfully completed')
+    except ValueError as e:
+        print('Testing failed')
+        return
+
+
 
     #using the class_id_map to decode the class names for showing result in a easily understanding format
     true_labels = []
     pred_labels = []
-    for e in y_test:
-      true_labels.append(class_id_map[e])
-    for e in y_pred:
-      pred_labels.append(class_id_map[e])
 
-    print('\n------------------------------Test Result----------------------------------')
-    print(classification_report(true_labels,pred_labels))
+    #test
+    try:
+        for e in y_test:
+            true_labels.append(class_id_map[e])
+        for e in y_pred:
+            pred_labels.append(class_id_map[e])
+
+        print('\n------------------------------Test Result----------------------------------')
+        print(classification_report(true_labels, pred_labels))
+    except KeyError as e:
+        print('Error in genetating Classification Report')
+
+
 
 
 def main():
+
+    #This function loads dataset on issue_df
+    loadDataset()
+
+    #if df not loaded, return from here
+    # unit_test
+    if(len(issue_df)==0):
+        return
 
     #This function gives insights into the dataset
     getDatasetInfo()
@@ -88,10 +129,13 @@ def main():
 
     #training
     clf=trainModel(train_df)
-    print('Training Completed')
     
     #testing
     testModel(test_df,clf,class_id_map)
 
-#Code runs from here    
+
+# Code runs from here
 main()
+
+
+
