@@ -13,7 +13,6 @@ issue_df = pd.read_csv('../data/dataInfoTypes.csv')
 def getDatasetInfo():
     #printing the number of labels and samples along with the class distribution
     print('Total ' + str(len(issue_df['Code'].unique())) + ' Classes and  ' +str(len(issue_df)) + ' samples in this dataset')
-    print(set(issue_df['Code']))
     print('\n--------------Class Distribution----------')
     print(issue_df.Code.value_counts())
 
